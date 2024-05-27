@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 
 
@@ -42,7 +41,7 @@ import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
                                       <FaInstagram className='text-2xl' />
                                   </a> 
                           </div>
-                      <h6 className="text-center">&copy; right Coderfilx {Year}</h6>
+                      <h6 className="text-center">&copy; Recipe Blogs {Year}</h6>
               </footer>
     );
 };

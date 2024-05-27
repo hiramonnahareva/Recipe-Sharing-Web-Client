@@ -1,6 +1,10 @@
+import { Link } from 'react-router-dom';
 import image from '../../asset/coins.png'
 
 const AddCoins = () => {
+
+    
+
     return (
         
             <div className='flex justify-center my-20'>
@@ -9,7 +13,7 @@ const AddCoins = () => {
                         <div className='lg:flex-1 w-full'>
                             <h1 className="lg:text-5xl text-[28px] font-semibold mb-5">Purchase Your Coin <br /> Now!</h1>
                                 <div>
-                                    <button className="btn bg-black border border-black hover:text-black transition-all hover:bg-primary duration-700 ease-in-out rounded-full text-gray-100 lg:px-10">Purchase</button>
+                                    <Link to="/purchaseCoin"><button className="btn bg-black border border-black hover:text-black transition-all hover:bg-primary duration-700 ease-in-out rounded-full text-gray-100 lg:px-10">Purchase</button></Link>
                                 </div>
                         </div>
                         <div className='lg:flex-1 w-full mx-auto'>

@@ -2,13 +2,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
-import { useCoins } from '../Shared/CoinContext';
 
-const AddRecipe = ({children}) => {
+const AddRecipe = () => {
 
-    const { coins, setCoins } = useCoins();
-
-    const newCoin = coins + 1; 
+    
 
     const [user] = useAuthState(auth);
     // console.log(user.currentUser);
@@ -45,7 +42,7 @@ const AddRecipe = ({children}) => {
 
                     console.log(Recipe);
 
-                    fetch('http://localhost:3000/createRecipe', {
+                    fetch('https://recipe-sharing-web-server.onrender.com/createRecipe', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -57,7 +54,6 @@ const AddRecipe = ({children}) => {
                         .then(data => {
                             if (data) {
                                 toast.success('Recipe added successfuly')
-                                setCoins(newCoin);
                                 reset()
                             }
                             else {

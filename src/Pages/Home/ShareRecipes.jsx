@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import image from '../../asset/shareRecipeBanner.png'
 
 const ShareRecipes = () => {
@@ -12,7 +13,7 @@ const ShareRecipes = () => {
                         <span className='text-2xl my-2 text-black'>Earn Coin Now! </span>
                         <div className="card-actions">
                             <div>
-                            <button className="btn bg-black border border-black hover:text-black transition-all duration-700 ease-in-out rounded-full text-gray-100 lg:px-10">See Recipes</button>
+                            <Link to="/add-recipe"><button className="btn bg-black border border-black hover:text-black transition-all duration-700 ease-in-out rounded-full text-gray-100 lg:px-10">Add Recipes</button></Link>
                             </div>
                         </div>
                     </div>

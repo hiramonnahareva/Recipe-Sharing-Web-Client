@@ -8,7 +8,7 @@ const Recipes = () => {
     const [Recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/recipes')
+        fetch('https://recipe-sharing-web-server.onrender.com/recipes')
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [])

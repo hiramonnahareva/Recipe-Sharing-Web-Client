@@ -10,7 +10,7 @@ const RecipeDetails = () => {
     const { id } = useParams();
     
     const [Recipes, setRecipes] = useState([]);
-    // const categories = ['Chicken Recipe', 'Supe Recipe', 'Dessert Recipe', 'Spice Recipe', 'Cake Recipe', 'Pickle Recipe'];
+    const categories = ['Chicken Recipe', 'Supe Recipe', 'Dessert Recipe', 'Spice Recipe', 'Cake Recipe', 'Pickle Recipe'];
     const [selectedCategory, setSelectedCategory] = useState([]);
 
     const {_id, name, img, details, videoLink, category} = Recipes;
@@ -18,7 +18,7 @@ const RecipeDetails = () => {
     const [AllRecipes, setAllRecipes] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/recipes')
+        fetch('https://recipe-sharing-web-server.onrender.com/recipes')
             .then(res => res.json())
             .then(data => setAllRecipes(data))
             
@@ -26,23 +26,14 @@ const RecipeDetails = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:3000/recipe/${id}`)
+        fetch(`https://recipe-sharing-web-server.onrender.com/recipe/${id}`)
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [id]);
 
-   
 
-    // const filteredRecipes = AllRecipes?.filter((newCategory) =>
-    //       console.log( newCategory.category)
-            
-    //         // setSelectedCategory(  category === newCategory )
+  AllRecipes.filter(recipe => (recipe.category) === category )
 
-            
-    //     );
-
-    
-    
     return (
         <div className='p-5 text-center mx-4 lg:mx-96 mt-5 mb-5 px-8 shadow-lg '>
             <h1 className='text-2xl pt-5 font-bold pb-4'>{name}</h1>
@@ -58,20 +49,20 @@ const RecipeDetails = () => {
       />
       <div>
 
-      {
+      {/* {
                 Recipes.length ?
                     <div className='bg-white lg:mx-20 py-5'>
                         <div>
                             <div className="grid lg:grid-cols-3">
-                                {/* {
-                                   italianRecipes?.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
+                                {
+                                  filterCategory && filterCategory?.map((recipe) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
 
-                                    )
-                                } */}
+                                )
+                                }
                             </div>
                         </div>
                     </div> : <Loading></Loading>
-            }
+            } */}
       </div>
         </div>
     );

@@ -10,7 +10,6 @@ import auth from '../../firebase.init';
 import UseToken from '../../Hooks/UseToken';
 import { createContext, useEffect, useState } from 'react';
 import { useCoins } from './CoinContext';
-import { toast } from 'react-toastify';
 
 const Navbar = ({ children }) => {
     const navigate = useNavigate();
@@ -19,12 +18,7 @@ const Navbar = ({ children }) => {
 
     const { coins, setCoins } = useCoins();
 
-
-    //  addCoins()
-    // }
-    // })
-
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser] = useSignInWithGoogle(auth);
     const [token] = UseToken(gUser)
 
     if (token) {
@@ -34,7 +28,7 @@ const Navbar = ({ children }) => {
     const [user] = useAuthState(auth);
     { user && setCoins(50) }
 
-    console.log(coins);
+    
 
     const CoinsContext = createContext();
 
@@ -52,8 +46,6 @@ const Navbar = ({ children }) => {
         coin: 50
     }
 
-    console.log(userData)
-
 
     // user data
 
@@ -66,17 +58,15 @@ const Navbar = ({ children }) => {
     const [dbUser, setUser] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/user')
+        fetch('https://recipe-sharing-web-server.onrender.com/user')
             .then(res => res.json())
             .then(data => setUser(data))
     }, []);
 
-    console.log(dbUser);
-
 
 
     // if(user != userData) {
-    //     fetch('http://localhost:3000/user', {
+    //     fetch('https://recipe-sharing-web-server.onrender.com/user', {
     //     method: 'POST',
     //     headers: {
     //         'content-type': 'application/json',

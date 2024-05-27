@@ -5,7 +5,7 @@ import swal from "sweetalert";
 import { useCoins } from "../Shared/CoinContext";
 
 const RecipeCard = ({ recipe }) => {
-    const { _id, name, img, creatorEmail, country } = recipe;
+    const { _id, name, img, creatorEmail, country, purchased_by } = recipe;
 
 
     const { coins, setCoins } = useCoins(0);
@@ -77,7 +77,7 @@ const RecipeCard = ({ recipe }) => {
                         <img className='w-full' src={img} alt="" />
                     </div>
                     <div className="flex flex-wrap justify-evenly">
-                        <p>purchased_by</p>
+                        <p>{purchased_by.length == 0 && "No Data"}</p>
                         <p>{country}</p>
                         <p>{creatorEmail}</p>
                     </div>
